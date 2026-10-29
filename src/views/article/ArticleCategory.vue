@@ -29,8 +29,8 @@ const categorys = ref([
 ])
 
 import {articleCategoryListService, articleCategoryAddService, articleCategoryUpdateService,articleCategoryDeleteService} from '@/api/article.js'
-const articleCategoryList = async()=>{
-    // 
+// 声明一个异步的函数
+const articleCategoryList = async()=>{ 
     let result = await articleCategoryListService();
     categorys.value = result.data;
 }

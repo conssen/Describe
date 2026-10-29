@@ -11,7 +11,7 @@ const registerData = ref({
     password:'',
     rePassword:''
 })
-
+// 校验密码的函数
 const checkRePassword = (rule, value, callback)=>{
     if (value==='') {
         callback(new Error('请确认密码'))
@@ -56,9 +56,10 @@ const register = async()=>{
 
 import  {useRouter} from 'vue-router'
 import {useTokenStore} from '@/stores/token.js'
-
+// 获取对应路由实列
 const router = useRouter()
-const tokenStore = useTokenStore();
+// 获取useTokenStore中第二个参数 函数中所定义的
+const tokenStore=useTokenStore()
 //定义登录函数
 const login = async()=>{
     try{
@@ -69,16 +70,21 @@ const login = async()=>{
     //把得到的token存储到pinia中
     tokenStore.setToken(result.data)
 
-    //跳转到首页
+    //跳转到首页  借助路由完成跳转
     router.push('/')
     }catch(e){
-
     }
-    
-   
-}
-
-//定义清空函数
+} 
+// const login = async()=>{
+//     // 调用接口,完成登录
+//      let result = await userLoginService(registerData.value)
+//      if(result){
+//         alert(result.msg ? result.msg : '登陆成功')
+//      }else{
+//         alert('登陆失败')
+//      }
+// }
+//定义清空函数 用来清空数据模型的数据 
 const clearRegisterData = ()=>{
     registerData.value={
         username:'',

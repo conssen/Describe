@@ -1,3 +1,4 @@
+<!-- 主页面 -->
 <script setup>
 import {
     Management,
@@ -10,8 +11,6 @@ import {
     CaretBottom
 } from '@element-plus/icons-vue'
 import avatar from '@/assets/default.png' 
-
-
 import { userInfoService } from '@/api/user.js'
 import useUserInfoStore from '@/stores/userInfo.js'
 import { useTokenStore } from '@/stores/token';
@@ -77,8 +76,11 @@ const handleCommand = (command)=>{
         <!-- 侧边栏 -->
         <el-aside width="200px">
             <div class="el-aside__logo"></div>
+            <!-- element-plus的菜单标签 -->
             <el-menu active-text-color="#ffd04b" background-color="#232323"  text-color="#fff"
                 router>
+                <!-- 菜单项  这里的index 作用是当点击的时候展示对应的路径-->
+                  
                 <el-menu-item index="/article/category">
                     <el-icon>
                         <Management />
@@ -91,7 +93,7 @@ const handleCommand = (command)=>{
                     </el-icon>
                     <span>文章管理</span>
                 </el-menu-item>
-                <el-sub-menu>
+                <el-sub-menu> 
                     <template #title>
                         <el-icon>
                             <UserFilled />
@@ -124,6 +126,7 @@ const handleCommand = (command)=>{
             <!-- 头部区域 -->
             <el-header>
                 <div><strong>用户:{{ userInfoStore.info.nickname ? userInfoStore.info.nickname : userInfoStore.info.username }}</strong></div>
+                <!-- 下拉菜单 -->
                 <el-dropdown placement="bottom-end" @command="handleCommand">
                     <span class="el-dropdown__box">
                         <el-avatar :src="userInfoStore.info.userPic ? userInfoStore.info.userPic : avatar" />
@@ -149,7 +152,7 @@ const handleCommand = (command)=>{
                 <router-view></router-view>
             </el-main>
             <!-- 底部区域 -->
-            <el-footer>2026 Created by deligede</el-footer>
+            <el-footer>2026 Created by 李卓</el-footer>
         </el-container>
     </el-container>
 </template>

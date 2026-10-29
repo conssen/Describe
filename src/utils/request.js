@@ -1,13 +1,12 @@
 import axios from 'axios';
-
+import { useTokenStore } from '@/stores/token';
 import { ElMessage } from 'element-plus'
-
-import { useTokenStore } from '@/stores/token.js';
 const baseURL = '/api';
 const instance = axios.create({baseURL})
-
+/* 在请求then或catch进行拦截  由于后端配置了jwt令牌 需要token验证  这里进行了抽取封装成了store*/ 
 instance.interceptors.request.use(
     (config)=>{
+/* pinia抽取同类代码 */
         const tokenStore = useTokenStore();
         if(tokenStore.token){
             config.headers.Authorization = tokenStore.token
@@ -19,17 +18,17 @@ instance.interceptors.request.use(
     }
 )
 
-import router from '@/router'
 
+
+import router from '@/router'
+/* 添加响应拦截器 */
 instance.interceptors.response.use(
     result=>{
-
+    // 判断业务状态码
         if(result.data.code === 1){
             return result.data;
         }
-
         ElMessage.error(result.data.msg ? result.data.msg : '服务异常')
-
         return Promise.reject(result.data)
     },
     err=>{
