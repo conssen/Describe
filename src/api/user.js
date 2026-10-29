@@ -1,4 +1,4 @@
-//����request.js����
+// 定义发出异步请求
 
 import request from '@/utils/request.js'
 // 用户注册

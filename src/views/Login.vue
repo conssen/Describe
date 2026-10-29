@@ -22,7 +22,7 @@ const checkRePassword = (rule, value, callback)=>{
     }
 }
 
-//定义表单校验规则
+//定义表单的校验规则
 
 const rules = {
     username:[
@@ -72,7 +72,7 @@ const login = async()=>{
     //跳转到首页
     router.push('/')
     }catch(e){
-        
+
     }
     
    

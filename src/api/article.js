@@ -10,19 +10,19 @@ export const articleCategoryListService = ()=>{
 }
 // 新增文章分类
 export const articleCategoryAddService = (categoryData)=>{
-    return request.post('category', categoryData)
+    return request.post('category/add', categoryData)
 }
 
 
 
 // 更新文章分类
 export const articleCategoryUpdateService = (categoryData)=>{
-    return request.put('/category', categoryData)
+    return request.put('/category/update', categoryData)
 }
 
 // 删除文章分类
-export const articleCategoryDeleteService = (id)=>{
-    return request.delete ('/category?id='+id)
+export const articleCategoryDeleteService = (id) => {
+    return request.delete('/category/delete', { params: { id } })
 }
 
 // 展示文章
@@ -32,14 +32,14 @@ export const articleListService = (params)=>{
 
 /* 新增文章 */
 export const articleAddService = (articleData)=>{
-    return request.post('/article',articleData)
+    return request.post('/article/add',articleData)
 }
 
 /* 修改文章 */
 export const articleUpdateService = (articleData)=>{
-    return request.put('/article',articleData)
+    return request.put('/article/update',articleData)
 }
 // 根据id删除文章
 export const articleDeleteService = (id)=>{
-    return request.delete('/article?id='+id)
+    return request.delete('/article/delete',{params:{id} })
 }

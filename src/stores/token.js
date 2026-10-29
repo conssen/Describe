@@ -1,4 +1,4 @@
-//定义store 
+//定义store  pinia
 import {defineStore} from 'pinia'
 import {ref} from 'vue'
 // 保存请求头信息  token
