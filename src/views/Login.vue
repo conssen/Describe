@@ -61,16 +61,21 @@ const router = useRouter()
 const tokenStore = useTokenStore();
 //定义登录函数
 const login = async()=>{
+    try{
     //调用接口，完成登录
     let result = await userLoginService(registerData.value);
     ElMessage.success(result.msg ? result.msg : '登录成功')
      
-
     //把得到的token存储到pinia中
     tokenStore.setToken(result.data)
 
     //跳转到首页
     router.push('/')
+    }catch(e){
+        
+    }
+    
+   
 }
 
 //定义清空函数

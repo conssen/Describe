@@ -30,7 +30,7 @@ const updateAvatar = async()=>{
 }
 
 </script>
-
+<!-- 模板 -->
 <template>
     <el-card class="page-container">
         <template #header>

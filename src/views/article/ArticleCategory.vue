@@ -3,7 +3,7 @@ import {
     Edit,
     Delete
 } from '@element-plus/icons-vue'
-import { ref } from 'vue'
+import { ref,reactive } from 'vue'
 const categorys = ref([
     {
         "id": 3,

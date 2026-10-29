@@ -1,8 +1,7 @@
-//导入request.js工具
+//锟斤拷锟斤拷request.js锟斤拷锟斤拷
 
 import request from '@/utils/request.js'
-
-//提供调用注册接口的函数
+// 鐢ㄦ埛娉ㄥ唽
 
 export const userRegisterService = (registerData)=>{
     const params = new URLSearchParams()
@@ -13,8 +12,7 @@ export const userRegisterService = (registerData)=>{
 }
 
 
-//提供调用登录接口的函数
-
+// 鐢ㄦ埛鐧诲綍
 export const userLoginService = (loginData)=>{
     const params = new URLSearchParams()
     for(let key in loginData){
@@ -23,23 +21,23 @@ export const userLoginService = (loginData)=>{
     return request.post('/user/login', params)
 }
 
-//获取用户个人信息
+// 鑾峰彇鐢ㄦ埛淇℃伅
 export const userInfoService = ()=>{
     return request.get('/user/userInfo')
 
 }
-
+// 鏇存柊鐢ㄦ埛
 export const userInfoUpdateService = (userInfoData)=>{
     return request.put('/user/update', userInfoData)
 }
-
+// 鏇存崲鐢ㄦ埛 澶村儚
 export const userAvatarUpdateService = (avatarUrl)=>{
     const params  = new URLSearchParams();
     params.append('avatarUrl', avatarUrl) 
     return request.patch('/user/updateAvatar', params)
 }
 
-
+// 鏇存崲鐢ㄦ埛瀵嗙爜
 export const userPasswordUpdateService = (passwordData)=>{
  
     return request.patch('/user/updatePwd', passwordData);

@@ -1,6 +1,6 @@
 import {defineStore} from 'pinia'
 import { ref } from 'vue'
-
+// 保存用户信息
 const useUserInfoStore = defineStore('userInfo',()=>{
   
     const info = ref({})

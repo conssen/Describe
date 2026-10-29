@@ -149,7 +149,7 @@ const handleCommand = (command)=>{
                 <router-view></router-view>
             </el-main>
             <!-- 底部区域 -->
-            <el-footer>2024 Created by deligede</el-footer>
+            <el-footer>2026 Created by deligede</el-footer>
         </el-container>
     </el-container>
 </template>

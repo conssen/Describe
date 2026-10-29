@@ -1,7 +1,7 @@
 //定义store 
 import {defineStore} from 'pinia'
 import {ref} from 'vue'
-
+// 保存请求头信息  token
 export const useTokenStore = defineStore('token',()=>{
 
     const token = ref('')

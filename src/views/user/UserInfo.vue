@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import useUserInfoStore from '@/stores/userInfo.js';
 const userInfoStore = useUserInfoStore();
 const userInfo = ref({...userInfoStore.info})
-
+// 用户信息
 const rules = {
     nickname: [
         { required: true, amessage: '请输入用户昵称', trigger: 'blur' },

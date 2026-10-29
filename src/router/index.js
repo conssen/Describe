@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
-//µ¼Èë×é¼ş
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 import LoginVue from '@/views/Login.vue' 
 import LayoutVue from '@/views/Layout.vue'
 
@@ -12,23 +12,22 @@ import UserInfoVue from '@/views/user/UserInfo.vue'
 import UserResetPasswordVue from '@/views/user/UserResetPassword.vue'
 
 
-//¶¨ÒåÂ·ÓÉ¹ØÏµ
+
 const routes = [
-    {path:'/login', component:LoginVue},
-    {path:'/', component:LayoutVue, redirect:'/article/manage',children:[
-        {path:'/article/category', component:ArticleCategoryVue},
-        {path:'/article/manage', component:ArticleManageVue},
-        {path:'/user/info', component:UserInfoVue},
-        {path:'user/avatar', component:UserAvatarVue},
-        {path:'/user/resetPassword', component:UserResetPasswordVue}
+    { path: '/login', component: () => import('@/views/Login.vue') },
+    { path: '/', component: () => import('@/views/Layout.vue'), redirect: '/article/manage', children: [
+        { path: '/article/category', component: () => import('@/views/article/ArticleCategory.vue') },
+        { path: '/article/manage', component: () => import('@/views/article/ArticleManage.vue') },
+        { path: '/user/info', component: () => import('@/views/user/UserInfo.vue') },
+        { path: '/user/avatar', component: () => import('@/views/user/UserAvatar.vue') },
+        { path: '/user/resetPassword', component: () => import('@/views/user/UserResetPassword.vue') }
     ]} 
 ]
 
-//´´½¨Â·ÓÉÆ÷
+// ä¸å¸¦#å·
 const router = createRouter({
     history:createWebHistory(),
     routes: routes
 })
 
-//µ¼³öÂ·ÓÉ
 export default router

@@ -24,7 +24,7 @@ import router from '@/router'
 instance.interceptors.response.use(
     result=>{
 
-        if(result.data.code === 0){
+        if(result.data.code === 1){
             return result.data;
         }
 
