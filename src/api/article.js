@@ -6,7 +6,7 @@ export const articleCategoryListService = ()=>{
     //const tokenStore = useTokenStore();
    
     //return request.get('/category',{headers:{'Authorization':tokenStore.token}})
-    return request.get('/category')
+    return request.get('/category/list')
 }
 // 新增文章分类
 export const articleCategoryAddService = (categoryData)=>{
@@ -27,7 +27,7 @@ export const articleCategoryDeleteService = (id)=>{
 
 // 展示文章
 export const articleListService = (params)=>{
-    return request.get('/article', {params:params})
+    return request.get('/article/list', {params:params})
 }
 
 /* 新增文章 */
