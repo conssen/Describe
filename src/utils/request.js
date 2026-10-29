@@ -21,8 +21,6 @@ instance.interceptors.request.use(
 
 import router from '@/router'
 
-
-
 instance.interceptors.response.use(
     result=>{
 
