@@ -4,9 +4,10 @@ import { ElMessage } from 'element-plus'
 const baseURL = '/api';
 const instance = axios.create({baseURL})
 /* 在请求then或catch进行拦截  由于后端配置了jwt令牌 需要token验证  这里进行了抽取封装成了store*/ 
-instance.interceptors.request.use(
-    (config)=>{
-/* pinia抽取同类代码 */
+instance.interceptors.request.use( 
+    // 请求头的config配置
+    (config)=>{ 
+/* pinia抽取同类代码  请求前的回调 */ 
         const tokenStore = useTokenStore();
         if(tokenStore.token){
             config.headers.Authorization = tokenStore.token
@@ -18,8 +19,7 @@ instance.interceptors.request.use(
     }
 )
 
-
-
+// 导入路由器
 import router from '@/router'
 /* 添加响应拦截器 */
 instance.interceptors.response.use(
@@ -35,6 +35,7 @@ instance.interceptors.response.use(
         //判断响应状态码，如果为401，则证明未登录，提示登录，并跳转登陆页面
         if(err.response.status === 401){
             ElMessage.error('请先登录')
+            // 跳转
             router.push('/login')
         }else{
             ElMessage.error('服务异常');

@@ -31,6 +31,7 @@ const categorys = ref([
 import {articleCategoryListService, articleCategoryAddService, articleCategoryUpdateService,articleCategoryDeleteService} from '@/api/article.js'
 // 声明一个异步的函数
 const articleCategoryList = async()=>{ 
+    // 查询文章数据 
     let result = await articleCategoryListService();
     categorys.value = result.data;
 }
@@ -58,7 +59,7 @@ const addCategory = async()=>{
     let result = await articleCategoryAddService(categoryModel.value);
     ElMessage.success(result.msg ? result.msg : '添加成功')
 
-    //调用获取所有文章分类的函数
+    //调用获取所有文章分类的函数   进行数据刷新     
     articleCategoryList();
     dialogVisible.value = false;
 }
@@ -69,6 +70,7 @@ const title = ref('')
 const showDialog = (row)=>{
     dialogVisible.value=true;
     title.value='编辑分类';
+    // 数据拷贝
     categoryModel.value.categoryName = row.categoryName;
     categoryModel.value.categoryAlias = row.categoryAlias;
     //扩展id属性,传递给后台，完成分类的修改
@@ -76,10 +78,10 @@ const showDialog = (row)=>{
 }
 //编辑分类
 const updateCategory = async()=>{
-    //调用接口 
+    //调用接口  这边await 是同步等待放回的结果 async 是异步调用
     let result = await articleCategoryUpdateService(categoryModel.value);
     ElMessage.success(result.msg ? result.msg : '修改成功')
-    articleCategoryList();
+    articleCategoryList();  
     dialogVisible.value = false;
 } 
 
